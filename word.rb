@@ -6,4 +6,8 @@ class Word
     @word = tokens.shift
     @phones = tokens
   end
+
+  def to_s
+    "#{@word}: #{@phones}"
+  end
 end

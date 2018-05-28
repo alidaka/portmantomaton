@@ -8,4 +8,6 @@ def parse_cmu()
     .map{ |line| Word.new(line) }
 end
 
-puts parse_cmu.length
+words = parse_cmu
+random = words.sample
+puts random
