@@ -8,6 +8,25 @@ def parse_cmu()
     .map{ |line| Word.new(line) }
 end
 
-words = parse_cmu
-random = words.sample
-puts random
+def smashable?(first, second)
+  first.last_stress == second.first_stress
+end
+
+def matches_for(word, words)
+  matches = words.select{ |w| word.last_stress == w.first_stress }
+end
+
+def run()
+  words = parse_cmu
+
+  matches = nil
+  word = words.shuffle.find{ |word|
+    matches = matches_for(word, words)
+    matches.any?
+  }
+
+  puts word
+  puts matches.sample
+end
+
+run
