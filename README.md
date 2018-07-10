@@ -1,7 +1,14 @@
 # portmantomaton
 
+## Run
+Tests: `rake`
+
+Work in progress: `ruby simple.rb`
+
 ## Development notes
 I think all vowel phones start with vowels, and Y is a consonant sound. Maybe we can depend on that for syllables?
+
+Words like "bracket"/"yttrium" currently don't work since the first syllable of "yttrium" is only the vowel sound :(
 
 ## TODO
 * First/last syllable rather than stress? Missing consonant sounds :(
