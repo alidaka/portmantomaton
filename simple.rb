@@ -12,20 +12,28 @@ def smashable?(first, second)
   first.last_stress == second.first_stress
 end
 
-def matches_for(word, words)
-  matches = words.select{ |w| word.last_stress == w.first_stress }
+def matches_for_inverse(word, words)
+  words.select{ |w| w.last_stress == word.first_stress }
 end
 
-def run()
+def matches_for(word, words)
+  words.select{ |w| word.last_stress == w.first_stress }
+end
+
+def lookup(word, words)
+  words.find{ |w| w.word == word}
+end
+
+def run
   words = parse_cmu
 
   matches = nil
-  word = words.shuffle.find{ |word|
-    matches = matches_for(word, words)
+  candidate = words.shuffle.find{ |candidate|
+    matches = matches_for(candidate, words)
     matches.any?
   }
 
-  puts word
+  puts candidate
   puts matches.sample
 end
 

@@ -23,7 +23,7 @@ class Word
   end
 
   def matches_in(words)
-    matches = words.select{ |w| last_stress == w.first_stress }
+    words.select{ |w| last_stress == w.first_stress }
   end
 
   def ==(other)
